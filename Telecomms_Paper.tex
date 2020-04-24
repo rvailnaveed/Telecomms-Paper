@@ -313,11 +313,17 @@ simultaneously. To put this into perspective, 1 qubit can be in a superposition 
 50 qubits can be in a superposition of 250 = 1,125,899,906,842,624 states at once. As of 2019 the most powerful quantum computer is owned by IBM with 53 qubits. \\ \\
 Another phenomenon that makes quantum computing so powerful is \emph{Quantum Entanglement}. Entanglement allows for one or more qubits to become a pair such that
 a change in one qubit will directly result in a change in the other. THis happens, regardless of the distance netween them. Quantum Computers can harness the power of
-entangled qubits in a "daisy chain" leading to exponential increases in computing power and speed.
+entangled qubits in a "daisy chain" leading to exponential increases in computing power and speed. \\ \\
+However Quantum Computers are much more error prone than their classical counterparts due to \emph{decoherence}.
+Qubits are very susceptible to errors from outside factors such 
+as heat and vibrations. This causes their quantum behvaiour to decay and become unreliable. Qubits are very fragile and any noise can cause problems in their superposition.
+Despite best efforts, researchers have found it difficult to reduce errors due to noise. \\ \\
+There is extensive research being done on Quantum Computers and it won't be long before quantum computers are at a point where they become useful. It is estimated that by 2030 a Quantum
+computer could be built for a budget of a billion dollars that could crack RSA-2048.
 
 \section{Current Cryptography}
 Current cryptography techniques can be divided into 2 distinct types: \emph{Symmetric} and 
-\emph{Asymmetric}. These cryptography techniques rely heavily on the hardness of solving problems such as Inetger Factorization and the Discrete 
+\emph{Asymmetric}. These cryptography techniques rely heavily on the hardness of solving problems such as Integer Factorization and the Discrete 
 Logarithm problem.
 
 \subsection{Symmetric}
@@ -325,8 +331,7 @@ Logarithm problem.
 Symmetric-key cryptography algorithms rely on a single key to encrypt and decrypt messages. This key can be shared between two or more users.
 The plaintext message is entered into a "cipher" that encrypts the message using the key and outputs it as ciphertext. In much the same way,
 the ciphertext is decrypted using the key and can be converted back to it's plaintext form. \\ \\
-The inherent security of symmetric cryptography is based on the length of the keys used for encryption/decryption. A 128 bit key length would take billions of years
-to crack on classical hardware. 256 bit key lengths are thought to be theoreticallly resistant to Quantum attacks. Symmetric Cryptography allows for fairly high security with fast speeds,
+Symmetric Cryptography allows for fairly high security with fast speeds,
 however there is a significant risk of keys being intercepted while they are being dsitributed.
 \subsection{Asymmetric}
 %Shor's Algorithm
@@ -334,16 +339,17 @@ Also known as public-key cryptography, it makes use of two keys compared to the 
 The sender uses the receivers public key to encrypt a message before sending it. The receiver then decrypts the message using their own related private key. Public-key cryptography is essential to
 internet applications such as the Secure Socket Layer, Transport Layer Security and HTTPS. \\ \\ 
 Digital signatures can also be verified using public-key techniques. Digital signatures are a way of validating the integrity of data.
-A hash is of the data to be signed is generated, this hash is then encrypted using the private key.
-\subsection{Security}
-How secure they are currently
+A hash is of the data to be signed is generated, this hash is then encrypted using the private key. The hash combined with other metadata is then what's known as the digital signature.
+When the recipient recieves the message, it can be verified by running the message through the same hashing algorithm. A match indicated a valid, untampered message.
+\subsection{Integer Factorization Problem}
 
-\section{Grover's Algorithm}
-What it works on, how it operates
-\section{Algorithms Threatened by the Quantum Era}
+\subsection{Discrete Logarithm Problem}
 
-\section{Post Quantum Crpytography}
-
+\subsection{Current Security}
+Both symmetric and public-key cryprography are considered to be very secure by today's standards. However this security is threatened as we move towards a reality where Quantum Computers 
+are more powerful. The inherent security of symmetric cryptography is based on the length of the keys used for encryption/decryption. A 128 bit key length would take billions of years
+to crack on classical hardware. NIST recommends a move to 256 bit key lengths, which are thought to be theoreticallly resistant to Quantum attacks. The same cannot be said for public-key algorithms such as RSA and Elliptic Curve 
+Crptography as quantum algorithms such as \emph{Shor's Algorithm} and \emph{Grover's Algorithm} aim to drastically reduce the amount of time it takes to crack them.
 
 \section{Shor's Algorithm - This defo needs to be better}
 In 1994, Peter Shor developed a quantum polynomial-time quantum algorithm for integer factorization. This algorithm 
@@ -365,6 +371,13 @@ compute factors of these very large numbers at a scale that is unmatched by mode
   \item This $r$ can then directly be used to solve for a factor of $N$, thus breaking the encryption.
 \end{itemize}
 Shor's algorithm also applies to cryptography schemes that depend on the \emph{Discrete Logarithm Problem}.
+
+\section{Grover's Algorithm}
+What it works on, how it operates
+
+\section{Algorithms Threatened by the Quantum Era}
+
+\section{Post Quantum Crpytography}
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
