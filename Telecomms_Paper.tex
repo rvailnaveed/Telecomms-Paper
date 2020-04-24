@@ -1,5 +1,4 @@
 \documentclass[journal]{IEEEtran}
-
 % *** CITATION PACKAGES ***
 %
 \usepackage{cite}
@@ -274,52 +273,98 @@
 
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
-\begin{abstract}
+
+\begin{abstract} % ~60 words
 In recent years there has been a surge of interest and development in quantum computing.
 Quantum computers have the ability to solve complex mathematical problems that classical computers are not able to.
 This puts modern encryption systems at risk. This report aims to review the concept of "post-quantum cryptography" and what it would look like in the age of
-large, scalable quantum computers would look like.
+large, scalable quantum computers.
 \end{abstract}
-
 
 \begin{IEEEkeywords}
 Quantum Computing, Cryptography, Public-Key Encryption
 \end{IEEEkeywords}
 
 
-
 \section{Introduction}
-% The very first letter is a 2 line initial drop letter followed
-% by the rest of the first word in caps.
-% 
-% form to use if the first word consists of a single letter:
-% \IEEEPARstart{A}{demo} file is ....
-% 
-% form to use if you need the single drop letter followed by
-% normal text (unknown if ever used by the IEEE):
-% \IEEEPARstart{A}{}demo file is ....
-% 
-% Some journals put the first two words in caps:
-% \IEEEPARstart{T}{his demo} file is ....
-% 
-% Here we have the typical use of a "T" for an initial drop letter
-% and "HIS" in caps to complete the first word.
-\IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
-for IEEE journal papers produced under \LaTeX\ using
-IEEEtran.cls version 1.8b and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
 
-\subsection{Subsection Heading Here}
-Subsection text here.
+\IEEEPARstart{S}{ince} the rise of the internet in the 1990's, there has been a very urgent need
+for crpytography. Cryptography, derived from the Greek word for "hidden" and "writing" has become a staple
+of every modern technology in use today. It is essential to countless businesses and the security, integrity 
+and confidentiality of our ever-growing online presence as a society. Over the past few decades there have been 
+significant strides made in the cryptography world (such as RSA and AES). Modern encryption algorithms rely on the
+hardness of solving one of two problems: \emph{Integer Factorization} and the \emph{Discrete Logarithm Problem}.
+These problems prove to be very difficult to solve modern classical computers as the power and time to solve them is immense.
+However, a relatively new phenomenon, Quantum-Computers, threaten this security. \\ \\
+Quantum computing began in the early 1980's when a physicist named Paul Benioff proposed a quantum mechanical model
+of the Turing machine. Richard Feynman, a theoretical physicist later brought up the idea that a quantum
+computer may be able to perform tasks that a classical computer did not have the capacity for. 
+\\ \\
+This paper aims to review Quantum Computers, how they operate, modern encryption algorithms and how a quantum computer
+threatens their security. 
 
-% needed in second column of first page if using \IEEEpubid
-%\IEEEpubidadjcol
+\section{Quantum Computers}
+Quantum Computers can perform calculations based on the probabiltity an objects state before it's measured.
+Classical computers encode data in bits. These bits can have \emph{either} a state of $0$ or $1$. Quantum computers, on the other hand
+use \emph{qubits} to perform their caclulations. Qubits are undefined properties of a system and have the ability to be in superposition.
+This means that a qubit can be in both states at the same time. Superposition can be thought of as a spinning coin, as the coin is spinning, 
+it is neither a heads or a tails until it lands. Qubits are plugged into special algorithms that allows them to crunch through a vast number of outcomes
+simultaneously. To put this into perspective, 1 qubit can be in a superposition of 2 states, 3 qubits can be in a superposition of 8 states and 
+50 qubits can be in a superposition of 250 = 1,125,899,906,842,624 states at once. As of 2019 the most powerful quantum computer is owned by IBM with 53 qubits. \\ \\
+Another phenomenon that makes quantum computing so powerful is \emph{Quantum Entanglement}. Entanglement allows for one or more qubits to become a pair such that
+a change in one qubit will directly result in a change in the other. THis happens, regardless of the distance netween them. Quantum Computers can harness the power of
+entangled qubits in a "daisy chain" leading to exponential increases in computing power and speed.
 
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
+\section{Current Cryptography}
+Current cryptography techniques can be divided into 2 distinct types: \emph{Symmetric} and 
+\emph{Asymmetric}. These cryptography techniques rely heavily on the hardness of solving problems such as Inetger Factorization and the Discrete 
+Logarithm problem.
 
+\subsection{Symmetric}
+%Grover's Algorithm
+Symmetric-key cryptography algorithms rely on a single key to encrypt and decrypt messages. This key can be shared between two or more users.
+The plaintext message is entered into a "cipher" that encrypts the message using the key and outputs it as ciphertext. In much the same way,
+the ciphertext is decrypted using the key and can be converted back to it's plaintext form. \\ \\
+The inherent security of symmetric cryptography is based on the length of the keys used for encryption/decryption. A 128 bit key length would take billions of years
+to crack on classical hardware. 256 bit key lengths are thought to be theoreticallly resistant to Quantum attacks. Symmetric Cryptography allows for fairly high security with fast speeds,
+however there is a significant risk of keys being intercepted while they are being dsitributed.
+\subsection{Asymmetric}
+%Shor's Algorithm
+Also known as public-key cryptography, it makes use of two keys compared to the one in symmetric. The pair of keys consists of a \emph{public key} and a \emph{private key}.
+The sender uses the receivers public key to encrypt a message before sending it. The receiver then decrypts the message using their own related private key. Public-key cryptography is essential to
+internet applications such as the Secure Socket Layer, Transport Layer Security and HTTPS. \\ \\ 
+Digital signatures can also be verified using public-key techniques. Digital signatures are a way of validating the integrity of data.
+A hash is of the data to be signed is generated, this hash is then encrypted using the private key.
+\subsection{Security}
+How secure they are currently
+
+\section{Grover's Algorithm}
+What it works on, how it operates
+\section{Algorithms Threatened by the Quantum Era}
+
+\section{Post Quantum Crpytography}
+
+
+\section{Shor's Algorithm - This defo needs to be better}
+In 1994, Peter Shor developed a quantum polynomial-time quantum algorithm for integer factorization. This algorithm 
+described a process for finding factors of a number, even a very large one in a very short amount of time. Integer Factorization
+serves as the basis for many of the worlds currently most secure crpytography algorithms, such as RSA. In Layman's terms, Shor's algorithm takes
+a guess at a number that could share factors with $N$ (but most likely doesn't) and transforms that guess into a much better one
+that is very likely to be a number that shares factors with $N$. Shor's algorithm leverages the concept of quantum superposition mentioned earlier to
+compute factors of these very large numbers at a scale that is unmatched by modern classical computers. In order to compute factors of N
+\begin{itemize}
+  \item Consider $N$, a very large number (eg: An RSA public key)
+  \item In order to crack RSA, we neeed to find factors of $N$ such that $f(x)=(x^r) mod N$.
+  \item Shor's Algorithm shifts the focus to finding period $r$ i.e: $f(x)=f(x+r)$. 
+  \item The algorithm uses something known as a \emph{Quantum Fourier Transform}(QFT).
+  \item A quantum computer can be in many states simultaneously, which leads to very fast computing.
+  \item This allows the computer to calculate the period $r$ for all points simultaneously.
+  \item 
+  Then the QFT essentially takes these values, transforms them into waves in such a way that they 
+  destructively interfere with each other, leaving only the correct value of $r$.
+  \item This $r$ can then directly be used to solve for a factor of $N$, thus breaking the encryption.
+\end{itemize}
+Shor's algorithm also applies to cryptography schemes that depend on the \emph{Discrete Logarithm Problem}.
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
