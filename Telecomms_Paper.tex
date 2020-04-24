@@ -342,21 +342,40 @@ Digital signatures can also be verified using public-key techniques. Digital sig
 A hash is of the data to be signed is generated, this hash is then encrypted using the private key. The hash combined with other metadata is then what's known as the digital signature.
 When the recipient recieves the message, it can be verified by running the message through the same hashing algorithm. A match indicated a valid, untampered message.
 \subsection{Integer Factorization Problem}
+RSA first proposed by Rivest, Shamir and Adleman in the 1970's, is one of the world's first public key cryptosystems. RSA is often used in combination with symmetric key algorithms for 
+maximum security and speed. RSA encryption is designed to be easy to compute in one direction and difficult to compute in the opposite direction. Such functions are often called \emph{trapdoor}
+or \emph{one-way} functions. RSA relies on the integer factorization problem via prime numbers. \\ 
+The operation of RSA is as follow:
+\begin{itemize}
+  \item Two large primes are generated $p, q$ such that they are far away from each other, otherwise it would be easier to crack.
+  \item The product of the two primes is then found $n=p*q$ and $\phi = (p-1)*(q-1)$
+  \item A random number $1<e<\phi$ is selected such that the greatest common divisor (gcd) = $gcd(e, \phi) = 1$
+  \item Compute a unique integer $1<d<\phi$ such that $e*d = 1(mod~\phi)$
+  \item We then have $(d, n)$ and $(e, n)$ as the private and public key's respectively.
+  \item Encrypt message \emph{m} using $c=m^e*mod~n$
+  \item Decrypt: $m=c^d mod~n$
+\end{itemize}
 
 \subsection{Discrete Logarithm Problem}
+Given a finite cycle group $Z^*p$ of order $p-1$ and a primitive element $\alpha \in Z^*p$ and another element $\beta \in Z^*p$, the DLP is determining an integer $1 \leq x \leq p-1$
+such that $\alpha^x \equiv \beta mod p$. $x$ is called the discrete logarithm of $\beta$ to the base $\alpha$. 
+$$x = log_\alpha \beta mod p$$. The difficuly of solving DLP relies in finding an $x$ that satisfies the equation. DLP can prove to be a very hard problem to solve, if the parameters are large.
 
-\subsection{Current Security}
+
+\subsection{Security}
 Both symmetric and public-key cryprography are considered to be very secure by today's standards. However this security is threatened as we move towards a reality where Quantum Computers 
 are more powerful. The inherent security of symmetric cryptography is based on the length of the keys used for encryption/decryption. A 128 bit key length would take billions of years
 to crack on classical hardware. NIST recommends a move to 256 bit key lengths, which are thought to be theoreticallly resistant to Quantum attacks. The same cannot be said for public-key algorithms such as RSA and Elliptic Curve 
-Crptography as quantum algorithms such as \emph{Shor's Algorithm} and \emph{Grover's Algorithm} aim to drastically reduce the amount of time it takes to crack them.
+Crptography as quantum algorithms such as \emph{Shor's Algorithm} and \emph{Grover's Algorithm} aim to drastically reduce the amount of time it takes to crack them. With classical hardware, prime factorization is extremely time consuming and
+unimaginable, with the best time being $O(exp(\sqrt[n]{\frac{64}{9}n(logn)^2}))$. However, with Shor's algorithm this time is significantly reduced to $O(n^3logn)$, where $n$ the bits of the product $p*q$.
 
 \section{Shor's Algorithm - This defo needs to be better}
 In 1994, Peter Shor developed a quantum polynomial-time quantum algorithm for integer factorization. This algorithm 
 described a process for finding factors of a number, even a very large one in a very short amount of time. Integer Factorization
 serves as the basis for many of the worlds currently most secure crpytography algorithms, such as RSA. In Layman's terms, Shor's algorithm takes
 a guess at a number that could share factors with $N$ (but most likely doesn't) and transforms that guess into a much better one
-that is very likely to be a number that shares factors with $N$. Shor's algorithm leverages the concept of quantum superposition mentioned earlier to
+that is very likely to be a number that shares factors with $N$. Understanding how algorithms like RSA operate is fundamental to understanding why Shor's Algorithm works.
+Shor's algorithm leverages the concept of quantum superposition mentioned earlier to
 compute factors of these very large numbers at a scale that is unmatched by modern classical computers. In order to compute factors of N
 \begin{itemize}
   \item Consider $N$, a very large number (eg: An RSA public key)
