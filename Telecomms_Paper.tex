@@ -396,6 +396,44 @@ What it works on, how it operates
 
 \section{Algorithms Threatened by the Quantum Era}
 
+\section{Quantum Key Distribution}
+Quantum Key distribution or QKD, first proposed in 1970, is a means of secure communication over a channel. This is achieved via a crytographic protocol based on the fundamentals of quantum mechanincs.
+QKD enables 2 or more people to share messages using a shared random key, much like traditional cryptpgraphy. In QKD , information is encoded in single photons of light which require special hardware to create and transmit.
+QKD's use lies in generating secure cryptographic keys for use in conjunction with other cryptograpghy schemes such as RSA, it would be too unreliable and inefficient at directly sending information.
+QKD in essence, works as follows; Two users Alice and Bob wish to communicate with each other but are unsure if someone is eavesdropping on theier conversation. Alice tries to send a message to Bob using a "bitstream" that is encoded in a base of 
+her choosing. If Bob also chooses the same base to decode the message, then their results correlate, otherwise they are random and are discarded. If someone tried to intercept the communication, they would introduce errors into the bitstream, this is discussed further below.
+This approach to key distribution comes with a number of advantages, namely that a secret key can be created in a provably secure way to prevent any any eavesdropping of private information, eavesdropping is easily detectable and perhaps most importantly, QKD has the ability to 
+wasily integrate with current cryptography to provide additional security. In this scenario, the interceptor would not only have to break the quantum key but also the classical one. \\ \\
+There are two main types of QKD protocols: \emph{Prepare and Measure} and \emph{Entanglement Based}.
+\subsection{Prepare and Measure}
+Measurement one of the fundamental concepts of quantum mechanics. Measurement of a quantum state changes that state in some way. This fact of quantum mechanics can be taken advantage of to detect eavesdropping,
+as the very act of eavesdropping requires some level of measurement. Prepare and Measure techniques also allow us to see \emph{how much} information has been intercepted. The most common prepare and measure protocol is BB84 which is discussed further below.
+\subsection{Entanglement Based}
+Entanglement based protocols exploit the quantum concept of entanglement which was explained earlier. Two or more qubits states become dependant on each other and they are in a joint state of superposition. Trying to determine the state of one of those qubits will directly result in a change in the other, making it very easy to
+detect eavesdropping. Theoretically, entanglement based protocols are  much more secure than their prepare and measure counterparts, however it is currently unfeasible as managing and creating entangled qubits is very difficult.
+\subsection{BB84 Protocol}
+BB84 was the worlds first Quantum Key Distribution protocol. It was created in 1984 by Bennet and Brassard. BB84's operation can be divided into three layers:
+\subsubsection{Physical Layer}
+This layer is the most hardware intensive portion of BB84. This is where communication between two parties, Alice and Bob, takes place. Alice chooses random photons to send to Bob, these can either be encoded with a 1 with 50\% probability or a 0 with 50\% probability.
+She can then encode the photons in either "base" \emph{X} or \emph{Y}, each with equal probability. These encoded photons are then sent over a quantum channel to Bob. Bob does not know what base Alice used or any information about how the qubits were encoded. He measures each bit on a random basis in either \emph{X} or \emph{Y} each with 50\% probability.
+This leads to Bob having 75\% of the correct bases for the qubits.
+\subsubsection{Key-Extraction}
+In the next layer BB84 becomes classical to etract the key from the qubits that were sent by Alice. This layer consists of 4 sublevels. In the first sublevel called \emph{sifting}, Alice and Bob reveal which bases they used and compare them over a public channel.
+They then proceed to discard the bits that do not correlate with each other. \\ \\
+In the 2nd sublevel \emph{authentication}, Alice and Bob compare a subset of their bits to determine if their communication channel was compromised. If there is a higher error than can be accounted for by random noise, then the channel is believed to have been intercepted by a third party. This is because in order for an attacker to intercept the qubits, 
+they must also guess the base wrong 50\% of the time, leading them to forward some incorrect bits to Bob. \\ \\
+\emph{Error correction} algorithms are then applied to reduce the effect of random noise on the data. \\ \\
+In the final sublayer \emph{Privacy amplification}, the key generated from BB84 is combined with classical cryptography algorithms to reduce the effects of any undetected, minor eavesdropping and to maximize the security of QKD. This is done by encrypting the key itself using a scheme such as RSA or AES. This will require two levels of decryption. \\ \\
+\subsubsection{Key-Application}
+The key-application layer is then responsible for using this generated key to encode data.
+\subsection{E91 Protocol}
+The E91 protocol is similar in nature to BB84 escept it operates on entangled qubits. Alice and Bob both possess half of an entangled state. In this scenario there is nothing for an eavesdropper to intercept as the state of a qubit only settles after it has been measuered. As before Alice and Bob choose 1 iut of 2 bases to measure in, each with 50\% probaility of getting chosen.
+After the qubits have been measured, they both share what bases they used over a public channel. If the qubits that were measured in different bases violate Bell inequalities, then states of the qubits remain entangled and it can be concluded that to eavesdropping has occured and the channel is secure. This is again, much more secure in theory than BB84 but it is impractical of the aforementioned
+decoherence problem of entangled qubits.
+
+
+
+
 \section{Post Quantum Crpytography}
 
 % An example of a floating figure using the graphicx package.
