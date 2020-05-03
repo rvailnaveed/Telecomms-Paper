@@ -275,10 +275,10 @@
 % in the abstract or keywords.
 
 \begin{abstract} % ~60 words
-In recent years there has been a surge of interest and development in quantum computing.
-Quantum computers have the ability to solve complex mathematical problems that classical computers are not able to.
-This puts modern encryption systems at risk. This report aims to review the concept of "post-quantum cryptography" and what it would look like in the age of
-large, scalable quantum computers.
+In the past decade, there has been extensive development in the quantum computing field. 
+Quantum computers are a fundamentally new way of performing calculations and solving problems. 
+Due to this, modern cryptography systems are put at risk. This report aims to review the concept of "Post-Quantum Cryptography", 
+and what can be done to mitigate the risk to cryptosystems presented by quantum computers.  
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -288,38 +288,36 @@ Quantum Computing, Cryptography, Public-Key Encryption
 
 \section{Introduction}
 
-\IEEEPARstart{S}{ince} the rise of the internet in the 1990's, there has been a very urgent need
-for crpytography. Cryptography, derived from the Greek word for "hidden" and "writing" has become a staple
-of every modern technology in use today. It is essential to countless businesses and the security, integrity 
-and confidentiality of our ever-growing online presence as a society. Over the past few decades there have been 
-significant strides made in the cryptography world (such as RSA and AES). Modern encryption algorithms rely on the
-hardness of solving one of two problems: \emph{Integer Factorization} and the \emph{Discrete Logarithm Problem}.
-These problems prove to be very difficult to solve modern classical computers as the power and time to solve them is immense.
-However, a relatively new phenomenon, Quantum-Computers, threaten this security. \\ \\
-Quantum computing began in the early 1980's when a physicist named Paul Benioff proposed a quantum mechanical model
-of the Turing machine. Richard Feynman, a theoretical physicist later brought up the idea that a quantum
-computer may be able to perform tasks that a classical computer did not have the capacity for. 
+\IEEEPARstart{S}{ince} the creation of the internet in the 1990's there has been an ever growing need for cryptography. 
+It has become a major component of the security and integrity of data. Modern encryption algorithms rely on the hardness of complex 
+mathematical problems such as \emph{Integer Factorization} and \emph{Discrete Logarithm Problem}. These problems serve as the basis for widely used cryptosystems such as RSA. 
+For classical computers, these problems are very hard problems to solve and require immense amounts of computing power and time to break. 
+This is why they are said to be secure by today's standards. However, a phenomenon known as Quantum Computing threatens this security. 
+The concept of quantum computing was first put forward by a physicist named Paul Benioff when he proposed a quantum mechanical model of the Turing machine. 
+Benioff was the first to show that quantum computing was theoretically possible. Many others built upon his work and it was then that it became known that a 
+quantum computer could have the possibility to solve problems in a fundamentally new way that would allow for extreme gains in speed and computing power, 
+that would be unparalleled by the classical computers of today.
 \\ \\
-This paper aims to review Quantum Computers, how they operate, modern encryption algorithms and how a quantum computer
-threatens their security. 
+The rest of this paper aims to review Quantum Coputers, how they operate, what makes current encryption schemes vulnerable,
+how quantum computers threaten their security and post-quantum alternatives for cryptosystems.
 
 \section{Quantum Computers}
-Quantum Computers can perform calculations based on the probabiltity an objects state before it's measured.
-Classical computers encode data in bits. These bits can have \emph{either} a state of $0$ or $1$. Quantum computers, on the other hand
-use \emph{qubits} to perform their caclulations. Qubits are undefined properties of a system and have the ability to be in superposition.
-This means that a qubit can be in both states at the same time. Superposition can be thought of as a spinning coin, as the coin is spinning, 
-it is neither a heads or a tails until it lands. Qubits are plugged into special algorithms that allows them to crunch through a vast number of outcomes
-simultaneously. To put this into perspective, 1 qubit can be in a superposition of 2 states, 3 qubits can be in a superposition of 8 states and 
-50 qubits can be in a superposition of 250 = 1,125,899,906,842,624 states at once. As of 2019 the most powerful quantum computer is owned by IBM with 53 qubits. \\ \\
-Another phenomenon that makes quantum computing so powerful is \emph{Quantum Entanglement}. Entanglement allows for one or more qubits to become a pair such that
-a change in one qubit will directly result in a change in the other. THis happens, regardless of the distance netween them. Quantum Computers can harness the power of
-entangled qubits in a "daisy chain" leading to exponential increases in computing power and speed. \\ \\
-However Quantum Computers are much more error prone than their classical counterparts due to \emph{decoherence}.
-Qubits are very susceptible to errors from outside factors such 
-as heat and vibrations. This causes their quantum behvaiour to decay and become unreliable. Qubits are very fragile and any noise can cause problems in their superposition.
-Despite best efforts, researchers have found it difficult to reduce errors due to noise. \\ \\
-There is extensive research being done on Quantum Computers and it won't be long before quantum computers are at a point where they become useful. It is estimated that by 2030 a Quantum
-computer could be built for a budget of a billion dollars that could crack RSA-2048.
+Unlike classical computers that depend on values being confirmed and definite in order to perform calculations with them, quantum computers can perform calculations 
+on variables before they have "settled" into  a state. This allows quantum computers to perform the calculations with variables who’s states are undetermined. 
+The common example used to illustrate this effect is a spinning coin. A classical computer only knows the value of the coin when it lands, either heads or tails. 
+A quantum computer interprets the spinning coin as being both in the state of heads and tails at the same time. 
+This phenomenon is called superposition and is one of the main ideas that makes these new computers so powerful. Quantum computers perform operations with \emph{qubits}. 
+Qubits are undefined properties of a system and they have the ability to be in a state of superposition, much like the spinning coin. These qubits are then used in special quantum algorithms such as 
+\emph{Shor's Algorithm} discussed below, to perform multiple probabilistic calculations simultaneously, cutting down on the time it would take a classical computer to do the same task. \\ \\ 
+Another fundamental concept that quantum computers take advantage of is \emph{Quantum Entanglement}. This refers to when 2 or more (n >= 2) qubits become an n-tuple. When this happens, 
+a change in one of the qubits in the tuple will result in a direct change in the other, in some deterministic way. Entanglement also allows for the "daisy-chaining" of multiple entangled qubits 
+for exponential computing gain. \\ \\ 
+Despite the promising nature of quantum computers, there are some challenges that need to be worked on in order to make it a significant threat to cryptography. 
+Quantum computers are much more error prone than their classical counterparts due to \emph{decoherence}. This happens because of random noise in the environment such as 
+heat and vibrations which make the superposition of the qubits decay over time, leading to less reliable functionality. 
+However, there is extensive research being done on this subject and it won't be long before a fully functional quantum computer is a reality. 
+According to the American National Institute of Standards and Technology (NIST), it is a probable scenario that a quantum computer c
+ould be built for a budget of one billion dollars by 2030 that could break RSA-2048, a feat that is impossible by classical computers of the current age. 
 
 \section{Current Cryptography}
 Current cryptography techniques can be divided into 2 distinct types: \emph{Symmetric} and 
@@ -327,20 +325,19 @@ Current cryptography techniques can be divided into 2 distinct types: \emph{Symm
 Logarithm problem.
 
 \subsection{Symmetric}
-%Grover's Algorithm
-Symmetric-key cryptography algorithms rely on a single key to encrypt and decrypt messages. This key can be shared between two or more users.
-The plaintext message is entered into a "cipher" that encrypts the message using the key and outputs it as ciphertext. In much the same way,
-the ciphertext is decrypted using the key and can be converted back to it's plaintext form. \\ \\
-Symmetric Cryptography allows for fairly high security with fast speeds,
-however there is a significant risk of keys being intercepted while they are being dsitributed.
+In symmetric-key cryptography there is only one key that is used to encrypt and decrypt messages between parties. 
+The plaintext x is entered into an algorithm called a "cipher" that encrypts the plaintext using the specified key and outputs 
+it as "scrambled" ciphertext. This ciphertext is now encrypted and can only be converted back to its original plaintext form by using the 
+specified key that it was  encrypted with. Symmetric-key cryptography allows for a respectable amount of security and efficiency. 
+However the benefits carry a risk as there are concerns of the keys being intercepted when they are being transmitted/distributed 
+between parties. 
 \subsection{Asymmetric}
-%Shor's Algorithm
-Also known as public-key cryptography, it makes use of two keys compared to the one in symmetric. The pair of keys consists of a \emph{public key} and a \emph{private key}.
-The sender uses the receivers public key to encrypt a message before sending it. The receiver then decrypts the message using their own related private key. Public-key cryptography is essential to
-internet applications such as the Secure Socket Layer, Transport Layer Security and HTTPS. \\ \\ 
-Digital signatures can also be verified using public-key techniques. Digital signatures are a way of validating the integrity of data.
-A hash is of the data to be signed is generated, this hash is then encrypted using the private key. The hash combined with other metadata is then what's known as the digital signature.
-When the recipient recieves the message, it can be verified by running the message through the same hashing algorithm. A match indicated a valid, untampered message.
+Asymmetric cryptography is commonly referred to as public-key cryptography. This is because it uses a 2-key pair to encrypt and 
+decrypt messages. Public-key cryptography uses a \emph{public key} that can be shared over any channel and a \emph{private key} 
+that is kept secret by the intended sender/recipient. The sender uses the receivers public key to encrypt a message before transmission, 
+and the receiver uses their own private key to decrypt the message and view it in its plaintext form. Public-key algorithms have seen 
+wide adoption and serve as a backbone to many services today such as the Secure Socket Layer and HTTPS technology. 
+Digital signatures are also commonly verified with public-key techniques. 
 \subsection{Integer Factorization Problem}
 RSA first proposed by Rivest, Shamir and Adleman in the 1970's, is one of the world's first public key cryptosystems. RSA is often used in combination with symmetric key algorithms for 
 maximum security and speed. RSA encryption is designed to be easy to compute in one direction and difficult to compute in the opposite direction. Such functions are often called \emph{trapdoor}
@@ -391,11 +388,6 @@ compute factors of these very large numbers at a scale that is unmatched by mode
 \end{itemize}
 Shor's algorithm also applies to cryptography schemes that depend on the \emph{Discrete Logarithm Problem}.
 
-\section{Grover's Algorithm}
-What it works on, how it operates
-
-\section{Algorithms Threatened by the Quantum Era}
-
 \section{Quantum Key Distribution}
 Quantum Key distribution or QKD, first proposed in 1970, is a means of secure communication over a channel. This is achieved via a crytographic protocol based on the fundamentals of quantum mechanincs.
 QKD enables 2 or more people to share messages using a shared random key, much like traditional cryptpgraphy. In QKD , information is encoded in single photons of light which require special hardware to create and transmit.
@@ -427,19 +419,62 @@ In the final sublayer \emph{Privacy amplification}, the key generated from BB84 
 \subsubsection{Key-Application}
 The key-application layer is then responsible for using this generated key to encode data.
 \subsection{E91 Protocol}
-The E91 protocol is similar in nature to BB84 escept it operates on entangled qubits. Alice and Bob both possess half of an entangled state. In this scenario there is nothing for an eavesdropper to intercept as the state of a qubit only settles after it has been measuered. As before Alice and Bob choose 1 iut of 2 bases to measure in, each with 50\% probaility of getting chosen.
+The E91 protocol is similar in nature to BB84 except it operates on entangled qubits. Alice and Bob both possess half of an entangled state. In this scenario there is nothing for an eavesdropper to intercept as the state of a qubit only settles after it has been measuered. As before Alice and Bob choose 1 iut of 2 bases to measure in, each with 50\% probaility of getting chosen.
 After the qubits have been measured, they both share what bases they used over a public channel. If the qubits that were measured in different bases violate Bell inequalities, then states of the qubits remain entangled and it can be concluded that to eavesdropping has occured and the channel is secure. This is again, much more secure in theory than BB84 but it is impractical of the aforementioned
 decoherence problem of entangled qubits.
 
+\section{Post Quantum Public-Key Algorithms}
+Along with the proposed methods of quantum key distribution, there has also been extensive research done into cryptography schemes that would be suitably secure for use in an age where quantum computers become powerful enough to bypass tranditional cryptography. There are three main areas of interest:
+\begin{itemize}
+  \item Lattice-Based Cryptography
+  \item Code-Based Cryptography
+  \item Multivariate Polynomial Cryptography
+\end{itemize}
+These methods do not rely on the integer factorization and discrete logarithm problems used by so many cryptosystems today. Making them theoretically, viable candidates to replace these schemes.
 
-
-
-\section{Post Quantum Crpytography}
+\subsection{Lattice Based}
+A lattice can be described as a grid of evenly spaces points stretching out to infinity in all directions.
+Lattice based cryptography has seen promising development in recent years. Instead of basing the algorithm on multiplying primes, lattice based solutions focus on multiplying matrices/vectors.
+The security proofs are related to hard math problems that involve lattice structures. \\
+A \emph{basis} of a lattice is a small subset of vectors from the original lattice that can be used to reproduce the original grid of points.
+Basis' are derived to conserve computer memory, as lattices tend to be very storage heavy. The basis of a lattice is \emph{short} when it contains short vectors, likewise when the basis is long. Some lattice problems are described below
+as well what a public-key system based on lattice problems would look like. Pursuing a public-key cryptosystem has many advantages, lattice problems are some of the most well understood and researched types of hard math problems, dating back
+to the 1800's.
+\subsubsection{Short vector problem}
+In this problem a long basis is constructed from a lattice L. The task is then to find a point somewhere in the lattice's grid as close as possible to the point of origin.
+The hardness of this problem lies in the relative difficulty of finding a short point in a long basis. Furthermore, a lattice can be very large consisting of thousands of points, so finding a combination of basis vectors that concurrently leads to those
+thousands of points small turns into an extrenuous task. 
+\subsubsection{Short Basis Problem}
+\begin{itemize}
+  \item Given a long basis for a lattice L.
+  \item Find a short basis in L.
+\end{itemize}
+\subsubsection{Closest Vector Problem}
+\begin{itemize}
+  \item Given a long basis for a lattice L.
+  \item A randomly chosen challenge point $P$ is also selected.
+  \item Find the closest point in L to challenge $P$.
+\end{itemize}
+\subsubsection{Public-Key Scheme}
+Encryption is done by selecting a vector $v$ as plaintext. This vector would then be hidden by adding some error vector to it such that $c=v+e$.
+Decryption of the ciphertext would then involve solving the shortest vector problem mentioned aboce using $c$ as the input. However this approach does not lead to secure schemes. When worst-to-average reduction schemes
+are applied, lattice based solutions also tend to lose their efficency. However NTRU, an open source lattice based cryptosystem seems promising. NTRU is very fast and efficient, but there could be unknown security flaws and no security proof exists for NTRU.
+\subsection{Code-Based}
+Code-based solutions make use off error correcting codes. They are based on the inherent difficulty of decoding linear codes.
+Code bases solutions are thought to be resilient against quantum attacks if their key size is increased by a factor of 4. \\
+The McEliece Goppa Code cryptosystem (MECS) is one of the most prominent code based solutions. In MECS encryption and decryption have quadratic complexity, which is on par with RSA. The main downside to MECS is the very large key size compared to other crypto algorithms.
+Common key sizes can be as big as 0.5Mb, vs 0.1Mb for RSA and just 0.02Mb for Elliptic Curve Cryptography (ECC). There is also no known polynomial time algorithm for decoding liner block codes and the problem is said to be NP hard, which further increases it's merit as a replacement for
+current encryption schemes. However, work needs to be done to improve the security of this system. \\
+There are many known attacks against MECS, one of them was proposed by McEliece himself and is based on \emph{information set decoding}. In this attack k co-ordinates are selected from n of the code in a way that no errors affect the selected co-ordinates. This can be done with probability of $(1-\frac{t}{n})^k$.
+The plaintext message can then be extracted using simple algebra and the running time of the attack is an unbearable $k^3(1-\frac{t}{n})^k$. This requires MECS to be combined with a semantically secure conversion  to increase its security. Despite these vulnerabilites, MECS still remains a prime candidate for a drop-in replacement for algorithms
+such as RSA, should the need arise.
+\subsection{Multivariate Polynomial}
+A multivariate polynomial is a polynomial with multiple variables such as $-3x^7-v^5y^4+5+6yx^3v^2$. Solving multivariate polynomials are also proven to be NP hard problems. Currently no encryption schemes based on multivariate polynomials exist, however there are some signature schemes implemented based on the concept such as 
+Unbalanced Oil and Vinegar(UOV) and Rainbow. The most promising encryption scheme is called SimpleMatrix or ABC. ABC allows for very fast encryption and decryption, however decryption fails with high probabilities and the key size for the scheme is also fairly large. It is also worth noting that many proposed signature schemes have been broken in the past such as the aforementioned UOV.
+Multivariate polynomial cryptography is also very young, and it has not been thoroughly tested by cryptanalytic techniques to consider it a feasible option for post-quantum cryptography.
 
 % An example of a floating figure using the graphicx package.
-% Note that \label must occur AFTER (or within) \caption.
-% For figures, \caption should occur after the \includegraphics.
-% Note that IEEEtran v1.7 and later has special internal code that
+% Note that \label must occur AFTER (or within) \caption. 
 % is designed to preserve the operation of \label within \caption
 % even when the captionsoff option is in effect. However, because
 % of issues like this, it may be the safest practice to put all your
@@ -534,7 +569,12 @@ decoherence problem of entangled qubits.
 
 
 \section{Conclusion}
-The conclusion goes here.
+Cryptography plays an ever growing role in our society. It is used to secure the transmission and storage of billions of peoples data. Quantum Computers
+propose a significant threat to the security of current cryptosystems that we have come to rely on. There are many promising post-quantum alternatives such as the code based
+McEliece cryptosystem and Lattice Based cryptography. It is unclear if any of the currently known algorithms will have the capability to serve as drop-in replacements when powerful quantum computers
+become a reality. Post-quantum cryptography faces many challenges in order to make it viable and there needs to be extensive research done to improve efficiency and usability. Development requires a collective, community effort to improve these problems
+and to build confidence in the security of any schemes proposed. However, the future looks bright as there are breakthroughs being made regularly, and it is improbable that the world will be completely unprepared by the time a sufficently powerful and usable quantum
+computer is developed.
 
 
 
@@ -604,10 +644,12 @@ The authors would like to thank...
 % (used to reserve space for the reference number labels box)
 \begin{thebibliography}{1}
 
-\bibitem{IEEEhowto:kopka}
+\bibitem{}
 H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
   0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
 
+\bibitem{}
+My guy, \emph{The New Codebreakers}
 \end{thebibliography}
 
 \end{document}
