@@ -1,3 +1,1 @@
 # Telecomms Research Paper
-
-## Sources
